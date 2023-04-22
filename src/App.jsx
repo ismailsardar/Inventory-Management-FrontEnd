@@ -1,29 +1,17 @@
 import React from "react";
-import { Toaster } from "react-hot-toast";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import FullscreenLoader from "./components/masterLayout/FullscreenLoader";
-import { getToken } from "./helper/SessionHelper";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RegistrationPage from "./pages/Users/RegistrationPage";
 
 const App = () => {
-  <Toaster />;
-  if (getToken()) {
-    return (
-      <>
-        <BrowserRouter>
-          <Routes></Routes>
-        </BrowserRouter>
-        <FullscreenLoader />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <BrowserRouter>
-          <Routes></Routes>
-        </BrowserRouter>
-        <FullscreenLoader />
-      </>
-    );
-  }
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/registration" element={<RegistrationPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 };
+
 export default App;
