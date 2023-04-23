@@ -37,7 +37,7 @@ const Login = () => {
                       Sign Up
                     </Link>
                     <span className="ms-1">|</span>
-                    <Link className="text-center ms-3 h6" to="/SendOTP">
+                    <Link className="text-center ms-3 h6" to="/sendOtp">
                       Forget Password
                     </Link>
                   </span>
