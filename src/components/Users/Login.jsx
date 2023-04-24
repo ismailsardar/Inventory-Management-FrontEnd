@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { LoginRequest } from "../../APIRequest/UserApiRequest";
+import { ErrorToast, IsEmail, IsEmpty } from "../../helper/FormHelper";
 
 const Login = () => {
+  let [data, setData] = useState({
+    UserEmail: "",
+    password: "",
+  });
+
+  let { UserEmail, password } = data;
+
+  const handelChange = (event) => {
+    const name = event.target.name;
+    setData((oldData) => {
+      return { ...oldData, [name]: event.target.value };
+    });
+  };
+
+  const SubmitLogin = async () => {
+    if (IsEmail(UserEmail)) {
+      ErrorToast("Invalid Email Address");
+    } else if (IsEmpty(password)) {
+      ErrorToast("Password Required");
+    } else {
+      let result = await LoginRequest(UserEmail, password);
+      if (result) {
+        window.location.href = "/";
+      }
+    }
+  };
+
   return (
     <>
       <div className="container">
@@ -12,21 +41,27 @@ const Login = () => {
                 <h3>SIGN IN</h3>
                 <br />
                 <input
-                  //   ref={(input) => (emailRef = input)}
+                  name="UserEmail"
+                  value={UserEmail}
+                  onChange={handelChange}
+                  required
                   placeholder="User Email"
-                  className="form-control"
+                  className="form-control animated fadeInUp"
                   type="email"
                 />
                 <br />
                 <input
-                  //   ref={(input) => (passRef = input)}
+                  name="password"
+                  value={password}
+                  onChange={handelChange}
+                  required
                   placeholder="User Password"
-                  className="form-control"
+                  className="form-control animated fadeInUp"
                   type="password"
                 />
                 <br />
                 <button
-                  //   onClick={SubmitLogin}
+                  onClick={SubmitLogin}
                   className="btn btn-success w-100 animated "
                 >
                   Next
