@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getEmail, getOtp } from "../../helper/SessionHelper";
+import { ErrorToast, IsEmpty } from "../../helper/FormHelper";
+import { RecoverResetPassRequest } from "../../APIRequest/UserApiRequest";
 
 const CreatePassword = () => {
   let navigate = useNavigate();
+
+  const [data, setData] = useState({ password: "", confirmPassword: "" });
+
+  const handelChange = (event) => {
+    const name = event.target.name;
+    setData((oldData) => {
+      return { ...oldData, [name]: event.target.value };
+    });
+  };
+
+  const ResetPass = async () => {
+    let Password = data.password;
+    let ConfirmPassword = data.confirmPassword;
+    if (IsEmpty(Password)) {
+      ErrorToast("Password Required");
+    } else if (IsEmpty(ConfirmPassword)) {
+      ErrorToast("Confirm Password Required");
+    } else if (Password !== ConfirmPassword) {
+      ErrorToast("Password & Confirm Password Should be Same");
+    } else {
+      let result = await RecoverResetPassRequest(
+        getEmail(),
+        getOtp(),
+        Password
+      );
+      if (result === true) {
+        navigate("/login");
+      }
+    }
+  };
 
   return (
     <>
@@ -16,8 +49,7 @@ const CreatePassword = () => {
                 <label>Your email address</label>
                 <input
                   readOnly={true}
-                  // value={getEmail()}
-                  value="ismileSardar@gmail.com"
+                  value={getEmail()}
                   placeholder="User Email"
                   className="form-control animated fadeInUp"
                   type="email"
@@ -25,7 +57,8 @@ const CreatePassword = () => {
                 <br />
                 <label>New Password</label>
                 <input
-                  //   ref={(input) => (PasswordRef = input)}
+                  name="password"
+                  onChange={handelChange}
                   placeholder="New Password"
                   className="form-control animated fadeInUp"
                   type="password"
@@ -33,16 +66,15 @@ const CreatePassword = () => {
                 <br />
                 <label>Confirm Password</label>
                 <input
-                  //   ref={(input) => (ConfirmPasswordRef = input)}
+                  name="confirmPassword"
+                  onChange={handelChange}
                   placeholder="Confirm Password"
                   className="form-control animated fadeInUp"
                   type="password"
                 />
                 <br />
-                <button
-                  /*onClick={ResetPass}*/ className="btn w-100 btn-success"
-                >
-                  Next
+                <button onClick={ResetPass} className="btn w-100 btn-success animated fadeInUp">
+                  Update Password
                 </button>
               </div>
             </div>
