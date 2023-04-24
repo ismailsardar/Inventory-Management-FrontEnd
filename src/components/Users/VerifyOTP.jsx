@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactCodeInput from "react-code-input";
 import { useNavigate } from "react-router-dom";
+import { RecoverVerifyOTPRequest } from "../../APIRequest/UserApiRequest";
+import { getEmail } from "../../helper/SessionHelper";
 
 const VerifyOTP = () => {
   let navigate = useNavigate();
@@ -20,6 +22,19 @@ const VerifyOTP = () => {
     backgroundColor: "white",
     borderColor: "lightgrey",
   };
+
+  let [OTP, SetOTP] = useState("");
+
+  const SubmitOTP = async () => {
+    if (OTP.length === 6) {
+      let result = await RecoverVerifyOTPRequest(getEmail(), OTP);
+      if (result === true) {
+        navigate("/createPassword");
+      }
+    } else {
+      ErrorToast("Enter 6 Digit Code");
+    }
+  };
   return (
     <>
       <div className="container">
@@ -33,14 +48,12 @@ const VerifyOTP = () => {
                   address.{" "}
                 </p>
                 <ReactCodeInput
-                  //   onChange={(value) => SetOTP(value)}
+                  onChange={(value) => SetOTP(value)}
                   inputStyle={defaultInputStyle}
                   fields={6}
                 />
                 <br /> <br />
-                <button
-                  /*onClick={SubmitOTP}*/ className="btn w-100 btn-success"
-                >
+                <button onClick={SubmitOTP} className="btn w-100 btn-success animated fadeInUp">
                   Next
                 </button>
               </div>
