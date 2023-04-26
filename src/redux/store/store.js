@@ -30,6 +30,6 @@ export default configureStore({
     return: returnReducer,
     sale: saleReducer,
     supplier: supplierReducer,
-    reportSlice: reportReducer,
+    report: reportReducer,
   },
 });
