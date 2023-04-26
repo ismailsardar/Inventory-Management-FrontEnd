@@ -5,7 +5,7 @@ const ProfilePage = () => {
   return (
     <Suspense fallback={<LazyLoader />}>
       <Profile />
-    </Suspense>
+    </Suspense> 
   );
 };
 
