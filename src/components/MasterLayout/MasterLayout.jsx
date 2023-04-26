@@ -79,7 +79,7 @@ const MasterLayout = (props) => {
         {
           title: "New Customer",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/customerCreate",
+          url: "/customerCreateUpdate",
         },
         {
           title: "Customer List",
@@ -96,7 +96,7 @@ const MasterLayout = (props) => {
         {
           title: "New Supplier",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/supplierCreate",
+          url: "/supplierCreateUpdate",
         },
         {
           title: "Supplier List",
@@ -113,7 +113,7 @@ const MasterLayout = (props) => {
         {
           title: "New Expense Type",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/expenseTypeCreate",
+          url: "/expenseTypeCreateUpdate",
         },
         {
           title: "Expense Type List",
@@ -123,7 +123,7 @@ const MasterLayout = (props) => {
         {
           title: "New Expense",
           icon: <IoCreateOutline size={16} className="side-bar-subitem-icon" />,
-          url: "/expenseCreate",
+          url: "/expenseCreateUpdate",
         },
         {
           title: "Expense List",
@@ -145,7 +145,7 @@ const MasterLayout = (props) => {
         {
           title: "New Brand",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/brandCreate",
+          url: "/brandCreateUpdate",
         },
         {
           title: "Brand List",
@@ -155,7 +155,7 @@ const MasterLayout = (props) => {
         {
           title: "New Category",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/categoryCreate",
+          url: "/categoryCreateUpdate",
         },
         {
           title: "Category List",
@@ -165,7 +165,7 @@ const MasterLayout = (props) => {
         {
           title: "New Product",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/productCreate",
+          url: "/productCreateUpdate",
         },
         {
           title: "Product List",
@@ -182,7 +182,7 @@ const MasterLayout = (props) => {
         {
           title: "New Purchase",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/purchaseCreate",
+          url: "/purchaseCreateUpdate",
         },
         {
           title: "Purchase List",
@@ -199,7 +199,7 @@ const MasterLayout = (props) => {
         {
           title: "New Sale",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/salesCreate",
+          url: "/salesCreateUpdate",
         },
         {
           title: "Sale List",
@@ -216,7 +216,7 @@ const MasterLayout = (props) => {
         {
           title: "New Return",
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: "/returnCreate",
+          url: "/returnCreateUpdate",
         },
         {
           title: "Return List",
