@@ -39,56 +39,56 @@ import VerifyOTPPage from "./pages/Users/VerifyOTPPage";
 const App = () => {
   if (getToken()) {
     return (
-      <>
+      <> 
         <BrowserRouter>
           <Routes>
-            <Route path="/brandCreate" element={<BrandCreateUpdatePage />} />
+            <Route path="/brandCreateUpdate" element={<BrandCreateUpdatePage />} />
             <Route path="/brandList" element={<BrandListPage />} />
 
             <Route
-              path="/categoryCreate"
+              path="/categoryCreateUpdate"
               element={<CategoryCreateUpdatePage />}
             />
             <Route exact path="/categoryList" element={<CategoryListPage />} />
 
             <Route
-              path="/customerCreate"
+              path="/customerCreateUpdate"
               element={<CustomerCreateUpdatePage />}
             />
             <Route path="/customerList" element={<CustomerListPage />} />
 
             <Route
-              path="/expenseTypeCreate"
+              path="/expenseTypeCreateUpdate"
               element={<ExpenseTypeCreateUpdatePage />}
             />
             <Route path="/expenseTypeList" element={<ExpenseTypeListPage />} />
 
             <Route
-              path="/expenseCreate"
+              path="/expenseCreateUpdate"
               element={<ExpenseCreateUpdatePage />}
             />
             <Route path="/expenseList" element={<ExpenseListPage />} />
 
             <Route
-              path="/productCreate"
+              path="/productCreateUpdate"
               element={<ProductCreateUpdatePage />}
             />
             <Route path="/productList" element={<ProductListPage />} />
 
             <Route
-              path="/purchaseCreate"
+              path="/purchaseCreateUpdate"
               element={<PurchaseCreateUpdatePage />}
             />
             <Route path="/purchaseList" element={<PurchaseListPage />} />
 
-            <Route path="/returnCreate" element={<ReturnCreateUpdatePage />} />
+            <Route path="/returnCreateUpdate" element={<ReturnCreateUpdatePage />} />
             <Route path="/returnList" element={<ReturnListPage />} />
 
-            <Route path="/salesCreate" element={<SalesCreateUpdatePage />} />
+            <Route path="/salesCreateUpdate" element={<SalesCreateUpdatePage />} />
             <Route path="/salesList" element={<SalesListPage />} />
 
             <Route
-              path="/supplierCreate"
+              path="/supplierCreateUpdate" 
               element={<SupplierCreateUpdatePage />}
             />
             <Route path="/supplierList" element={<SupplierListPage />} />
