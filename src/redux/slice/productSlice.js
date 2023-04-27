@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+ 
 export const productSlice = createSlice({
   name: "product",
   initialState: {
     List: [],
     ListTotal: 0,
-    ProductCategoryDropDown: [],
-    ProductBrandDropDown: [],
+    CategoryDropDown: [],
+    BrandDropDown: [],
     FormValue: {
       CategoryID: "",
       BrandID: "",
@@ -23,10 +23,10 @@ export const productSlice = createSlice({
       state.ListTotal = action.payload;
     },
     SetProductBrandDropDown: (state, action) => {
-      state.ProductBrandDropDown = action.payload;
+      state.BrandDropDown = action.payload;
     },
     SetProductCategoryDropDown: (state, action) => {
-      state.ProductCategoryDropDown = action.payload;
+      state.CategoryDropDown = action.payload;
     },
     OnChangeProductInput: (state, action) => {
       state.FormValue[`${action.payload.Name}`] = action.payload.Value;
