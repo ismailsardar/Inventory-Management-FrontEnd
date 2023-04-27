@@ -9,6 +9,7 @@ import {
   ReturnListRequest,
   DeleteReturnRequest,
 } from "../../APIRequest/ReturnApiRequest";
+import { DeleteAlert } from "../../helper/DeleteAlert";
 
 const ReturnList = () => {
   let [searchKey, setSearchKey] = useState("0");
@@ -88,7 +89,7 @@ const ReturnList = () => {
                         <option value="30">30 Per Page</option>
                         <option value="50">50 Per Page</option>
                         <option value="100">100 Per Page</option>
-                        <option value="100">200 Per Page</option>
+                        <option value="200">200 Per Page</option>
                       </select>
                     </div>
                     <div className="col-4">
