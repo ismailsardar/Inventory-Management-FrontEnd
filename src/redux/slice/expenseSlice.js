@@ -8,8 +8,8 @@ export const expenseSlice = createSlice({
     ExpenseTypeDropDown: [],
     FormValue: {
       TypeID: "",
-      Amount: "",
-      Note: "",
+      Amount: 0,
+      Note: "", 
     },
   },
   reducers: {
