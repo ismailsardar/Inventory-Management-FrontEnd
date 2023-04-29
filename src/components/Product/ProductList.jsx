@@ -1,13 +1,10 @@
-import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/all";
 import ReactPaginate from "react-paginate";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  DeleteProductRequest,
-  ProductListRequest,
-} from "../../APIRequest/ProductApiRequest";
+import { DeleteAlert } from "../../helper/DeleteAlert";
+import { DeleteProductRequest, ProductListRequest } from "../../APIRequest/ProductApiRequest";
 
 const ProductList = () => {
   let [searchKey, setSearchKey] = useState("0");
@@ -87,7 +84,7 @@ const ProductList = () => {
                         <option value="30">30 Per Page</option>
                         <option value="50">50 Per Page</option>
                         <option value="100">100 Per Page</option>
-                        <option value="100">200 Per Page</option>
+                        <option value="200">200 Per Page</option>
                       </select>
                     </div>
                     <div className="col-4">
@@ -129,10 +126,10 @@ const ProductList = () => {
                                 Brand
                               </td>
                               <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                              Categories
+                                Categories
                               </td>
                               <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                              Details
+                                Details
                               </td>
                               <td className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Action
@@ -157,17 +154,21 @@ const ProductList = () => {
                                 </td>
                                 <td>
                                   <p className="text-xs text-start">
-                                  {item.brands[0]?item.brands[0]['Name']:""}
+                                    {item.brands[0]
+                                      ? item.brands[0]["Name"]
+                                      : ""}
                                   </p>
                                 </td>
                                 <td>
                                   <p className="text-xs text-start">
-                                  {item.categories[0]?item.categories[0]['Name']:""}
+                                    {item.categories[0]
+                                      ? item.categories[0]["Name"]
+                                      : ""}
                                   </p>
                                 </td>
                                 <td>
                                   <p className="text-xs text-start">
-                                  {item.Details}
+                                    {item.Details}
                                   </p>
                                 </td>
                                 <td>
@@ -178,7 +179,7 @@ const ProductList = () => {
                                     <AiOutlineEdit size={15} />
                                   </Link>
                                   <button
-                                    onClick={DeleteItem.bind(this, item._id)}
+                                    onClick={() => DeleteItem(item._id)}
                                     className="btn btn-outline-light text-danger p-2 mb-0 btn-sm ms-2"
                                   >
                                     <AiOutlineDelete size={15} />
