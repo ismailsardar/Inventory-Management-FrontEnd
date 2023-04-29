@@ -1,4 +1,3 @@
-import moment from "moment";
 import React, { useEffect, useState } from "react";
 import CurrencyFormat from "react-currency-format";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/all";
@@ -9,6 +8,7 @@ import {
   DeleteExpenseRequest,
   ExpenseListRequest,
 } from "../../APIRequest/ExpenseApiRequest";
+import { DeleteAlert } from "../../helper/DeleteAlert";
 
 const ExpenseList = () => {
   let [searchKey, setSearchKey] = useState("0");
@@ -88,7 +88,7 @@ const ExpenseList = () => {
                         <option value="30">30 Per Page</option>
                         <option value="50">50 Per Page</option>
                         <option value="100">100 Per Page</option>
-                        <option value="100">200 Per Page</option>
+                        <option value="200">200 Per Page</option>
                       </select>
                     </div>
                     <div className="col-4">
@@ -157,9 +157,7 @@ const ExpenseList = () => {
                                 </td>
                                 <td>
                                   <p className="text-xs text-start">
-                                    {moment(item.CreatedDate).format(
-                                      "MMMM Do YYYY"
-                                    )}
+                                    {item.Note}
                                   </p>
                                 </td>
                                 <td>
@@ -170,7 +168,7 @@ const ExpenseList = () => {
                                     <AiOutlineEdit size={15} />
                                   </Link>
                                   <button
-                                    onClick={DeleteItem.bind(this, item._id)}
+                                    onClick={() => DeleteItem(item._id)}
                                     className="btn btn-outline-light text-danger p-2 mb-0 btn-sm ms-2"
                                   >
                                     <AiOutlineDelete size={15} />
