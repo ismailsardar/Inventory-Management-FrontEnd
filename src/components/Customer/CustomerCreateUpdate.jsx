@@ -7,7 +7,7 @@ import {
 } from "../../APIRequest/CustomerApiRequest";
 import { ErrorToast, IsEmail, IsEmpty } from "../../helper/FormHelper";
 import {
-  ResetFormValue,
+  // ResetFormValue,
   SetOnChangeInput,
 } from "../../redux/slice/customerSlice";
 import store from "../../redux/store/store";
@@ -15,9 +15,6 @@ import store from "../../redux/store/store";
 const CustomerCreateUpdate = () => {
   let [ObjectID, SetObjectID] = useState(null);
   let navigate = useNavigate();
-
-  // let param = new URLSearchParams(window.location.search);
-  // let sd = param.get("id");
 
   useEffect(() => {
     let params = new URLSearchParams(window.location.search);
@@ -29,12 +26,6 @@ const CustomerCreateUpdate = () => {
       })();
     }
   }, []);
-
-  // console.log(ObjectID)
-  // if(sd === null){
-  //   // ResetFormValue();
-  //   SetObjectID(0);
-  // }
 
   const FormValue = useSelector((state) => state.customer.FormValue);
 
