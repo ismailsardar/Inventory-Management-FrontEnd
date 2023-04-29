@@ -9,6 +9,7 @@ import {
   DeletePurchaseRequest,
   PurchaseListRequest,
 } from "../../APIRequest/PurchaseApiRequest";
+import { DeleteAlert } from "../../helper/DeleteAlert";
 
 const PurchaseList = () => {
   let [searchKey, setSearchKey] = useState("0");
@@ -26,13 +27,16 @@ const PurchaseList = () => {
   const handlePageClick = async (event) => {
     await PurchaseListRequest(event.selected + 1, perPage, searchKey);
   };
+
   const searchData = async () => {
     await PurchaseListRequest(1, perPage, searchKey);
   };
+
   const perPageOnChange = async (e) => {
     setPerPage(parseInt(e.target.value));
     await PurchaseListRequest(1, e.target.value, searchKey);
   };
+
   const searchKeywordOnChange = async (e) => {
     setSearchKey(e.target.value);
     if (e.target.value.length === 0) {
@@ -88,7 +92,7 @@ const PurchaseList = () => {
                         <option value="30">30 Per Page</option>
                         <option value="50">50 Per Page</option>
                         <option value="100">100 Per Page</option>
-                        <option value="100">200 Per Page</option>
+                        <option value="200">200 Per Page</option>
                       </select>
                     </div>
                     <div className="col-4">
@@ -223,7 +227,7 @@ const PurchaseList = () => {
                                     <AiOutlineEdit size={15} />
                                   </Link>
                                   <button
-                                    onClick={DeleteItem.bind(this, item._id)}
+                                    onClick={() => DeleteItem(item._id)}
                                     className="btn btn-outline-light text-danger p-2 mb-0 btn-sm ms-2"
                                   >
                                     <AiOutlineDelete size={15} />
