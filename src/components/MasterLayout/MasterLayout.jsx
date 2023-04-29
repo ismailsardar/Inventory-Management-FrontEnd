@@ -11,6 +11,7 @@ import {
   IoCreateOutline,
   RiDashboardLine,
   TbTruckDelivery,
+  AiOutlineMenuUnfold
 } from "react-icons/all";
 import {
   BsBagPlus,
@@ -272,7 +273,8 @@ const MasterLayout = (props) => {
             >
               <h4 className="text-white m-0 p-0">
                 <a onClick={MenuBarClickHandler}>
-                  <AiOutlineMenu />
+                  <AiOutlineMenuUnfold />
+                  {/* <AiOutlineMenu /> */}
                 </a>
               </h4>
             </div>
