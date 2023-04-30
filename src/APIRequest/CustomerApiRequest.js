@@ -48,11 +48,11 @@ export async function CreateUpdateRequest(postBody, objectId) {
     store.dispatch(ShowLoader());
 
     let URL = `${BaseURL}/createCustomers`;
-    if (objectId !== 0) {
+    if (objectId !== null) {
       URL = `${BaseURL}/updateCustomers/${objectId}`;
     }
     const result = await axios.post(URL, postBody, axiosConfig);
-    // console.log(result)
+  
     store.dispatch(HideLoader());
 
     if (result.data["status"] === "success") {
