@@ -1,10 +1,12 @@
 import axios from "axios";
-import { ErrorToast } from "../helper/FormHelper";
+import { ErrorToast, SuccessToast } from "../helper/FormHelper";
 import { getToken } from "../helper/SessionHelper";
 import { BaseURL } from "../helper/config";
 import {
-    SetSaleItemList,
-    SetSaleList
+  SetCustomerDropDown,
+  SetProductDropDown,
+  SetSaleItemList,
+  SetSaleList,
 } from "../redux/slice/saleSlice";
 import { HideLoader, ShowLoader } from "../redux/slice/settingsSlice";
 import store from "../redux/store/store";
@@ -23,7 +25,7 @@ export async function SaleListRequest(pageNo, perPage, searchKey) {
       if (result.data["data"][0]["Rows"].length > 0) {
         store.dispatch(SetSaleList(result.data["data"][0]["Rows"]));
         store.dispatch(
-            SetSaleItemList(result.data["data"][0]["Total"][0]["count"])
+          SetSaleItemList(result.data["data"][0]["Total"][0]["count"])
         );
       } else {
         store.dispatch(SetSaleList([]));
@@ -37,6 +39,78 @@ export async function SaleListRequest(pageNo, perPage, searchKey) {
     console.log(e);
     ErrorToast("Something Went Wrong+++");
     store.dispatch(HideLoader());
+  }
+}
+
+export async function CustomerDropDownRequest(pageNo, perPage, searchKey) {
+  try {
+    store.dispatch(ShowLoader());
+    
+    let URL = `${BaseURL}/customersDropDown`;
+    const result = await axios.get(URL, axiosConfig);
+
+    store.dispatch(HideLoader());
+
+    if (result.status === 200 && result.data["status"] === "success") {
+      if (result.data["data"].length > 0) {
+        store.dispatch(SetCustomerDropDown(result.data["data"]));
+      } else {
+        store.dispatch(SetCustomerDropDown([]));
+        ErrorToast("No Customer Found");
+      }
+    } else {
+      ErrorToast("Something Went Wrong");
+    }
+  } catch (e) {
+    ErrorToast("Something Went Wrong");
+    store.dispatch(HideLoader());
+  }
+}
+
+export async function ProductDropDownRequest() {
+  try {
+    store.dispatch(ShowLoader());
+
+    let URL = `${BaseURL}/productDropDown`;
+    const result = await axios.get(URL, axiosConfig);
+    store.dispatch(HideLoader());
+
+    if (result.status === 200 && result.data["status"] === "success") {
+      if (result.data["data"].length > 0) {
+        store.dispatch(SetProductDropDown(result.data["data"]));
+      } else {
+        store.dispatch(SetProductDropDown([]));
+        ErrorToast("No Product Found");
+      }
+    } else {
+      ErrorToast("Something Went Wrong");
+    }
+  } catch (e) {
+    ErrorToast("Something Went Wrong");
+    store.dispatch(HideLoader());
+  }
+}
+
+export async function CreateSaleRequest(ParentBody, ChildBody) {
+  try {
+    store.dispatch(ShowLoader());
+    let PostBody = { Parent: ParentBody, Childe: ChildBody };
+    let URL = `${BaseURL}/createSales`;
+
+    const result = await axios.post(URL, PostBody, axiosConfig);
+    store.dispatch(HideLoader());
+
+    if (result.status === 200 && result.data["status"] === "success") {
+      SuccessToast("Request Successful");
+      return true;
+    } else {
+      ErrorToast("Request Fail ! Try Again");
+      return false;
+    }
+  } catch (e) {
+    ErrorToast("Something Went Wrong");
+    store.dispatch(HideLoader());
+    return false;
   }
 }
 
