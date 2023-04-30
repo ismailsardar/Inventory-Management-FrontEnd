@@ -39,10 +39,13 @@ import VerifyOTPPage from "./pages/Users/VerifyOTPPage";
 const App = () => {
   if (getToken()) {
     return (
-      <> 
+      <>
         <BrowserRouter>
           <Routes>
-            <Route path="/brandCreateUpdate" element={<BrandCreateUpdatePage />} />
+            <Route
+              path="/brandCreateUpdate"
+              element={<BrandCreateUpdatePage />}
+            />
             <Route path="/brandList" element={<BrandListPage />} />
 
             <Route
@@ -81,14 +84,20 @@ const App = () => {
             />
             <Route path="/purchaseList" element={<PurchaseListPage />} />
 
-            <Route path="/returnCreateUpdate" element={<ReturnCreateUpdatePage />} />
+            <Route
+              path="/returnCreateUpdate"
+              element={<ReturnCreateUpdatePage />}
+            />
             <Route path="/returnList" element={<ReturnListPage />} />
 
-            <Route path="/salesCreateUpdate" element={<SalesCreateUpdatePage />} />
+            <Route
+              path="/salesCreateUpdate"
+              element={<SalesCreateUpdatePage />}
+            />
             <Route path="/salesList" element={<SalesListPage />} />
 
             <Route
-              path="/supplierCreateUpdate" 
+              path="/supplierCreateUpdate"
               element={<SupplierCreateUpdatePage />}
             />
             <Route path="/supplierList" element={<SupplierListPage />} />
