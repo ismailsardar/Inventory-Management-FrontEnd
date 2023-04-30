@@ -111,8 +111,9 @@ export async function CreateUpdateBrandRequest(postBody, objectId) {
     if (objectId !== 0) {
       URL = `${BaseURL}/updateBrand/${objectId}`;
     }
-    // console.log(URL);
+
     const result = await axios.post(URL, postBody, axiosConfig);
+
     store.dispatch(HideLoader());
 
     if (result.data["status"] === "success") {
