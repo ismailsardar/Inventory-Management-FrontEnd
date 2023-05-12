@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import CurrencyFormat from "react-currency-format";
+import { BsFillCalculatorFill,BsFillLayersFill,BsBoxes,BsFillCartCheckFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import {
   Area,
@@ -45,61 +46,74 @@ const Dashboard = () => {
         <div className="row">
           <div className="col-md-3 p-2">
             <div className="card">
-              <div className="card-body">
-                <span className="h5">
+              <div className="card-body d-flex">
+                <BsFillCalculatorFill
+                  style={{ fontSize: "50px", color: "rebeccapurple",paddingRight: "10px" }}
+                />
+
+                <div className="h4">
                   <CurrencyFormat
                     value={ExpenseTotal}
                     displayType={"text"}
                     thousandSeparator={true}
                     prefix={"$"}
                   />
-                </span>
-                <p>Total Expense</p>
+                  <h5>Total Expense</h5>
+                </div>
               </div>
             </div>
           </div>
           <div className="col-md-3 p-2">
             <div className="card">
-              <div className="card-body">
-                <span className="h5">
+              <div className="card-body d-flex">
+              <BsBoxes
+                  style={{ fontSize: "50px", color: "green",paddingRight: "10px" }}
+                />
+                <div className="h4">
                   <CurrencyFormat
                     value={SaleTotal}
                     displayType={"text"}
                     thousandSeparator={true}
                     prefix={"$"}
                   />
-                </span>
-                <p>Total Sale</p>
+                <h5>Total Sale</h5>
+                </div>
               </div>
             </div>
           </div>
           <div className="col-md-3 p-2">
             <div className="card">
-              <div className="card-body">
-                <span className="h5">
+              <div className="card-body d-flex">
+              <BsFillCartCheckFill
+                  style={{ fontSize: "50px", color: "hotpink",paddingRight: "10px" }}
+                />
+                <div className="h4">
                   <CurrencyFormat
                     value={PurchaseTotal}
                     displayType={"text"}
                     thousandSeparator={true}
                     prefix={"$"}
                   />
-                </span>
-                <p>Total Purchase</p>
+                <h5>Total Purchase</h5>
+                </div>
               </div>
             </div>
           </div>
           <div className="col-md-3 p-2">
             <div className="card">
-              <div className="card-body">
-                <span className="h5">
+              <div className="card-body d-flex">
+              <BsFillLayersFill
+                  style={{ fontSize: "50px", color: "darkred", paddingRight: "10px" }}
+                />
+                <div className="h4">
                   <CurrencyFormat
                     value={ReturnTotal}
                     displayType={"text"}
                     thousandSeparator={true}
                     prefix={"$"}
                   />
-                </span>
-                <p>Total Return</p>
+                <h5>Total Return</h5>
+                </div>
               </div>
             </div>
           </div>
@@ -108,7 +122,7 @@ const Dashboard = () => {
           <div className="col-md-6 p-2">
             <div className="card">
               <div className="card-body">
-                <span className="h6">Expense Last 30 Days</span>
+                <span className="h4">Expense Report Last 30 Days</span>
                 <ResponsiveContainer className="mt-4" width="100%" height={200}>
                   <AreaChart
                     width={500}
@@ -134,7 +148,7 @@ const Dashboard = () => {
           <div className="col-md-6 p-2">
             <div className="card">
               <div className="card-body">
-                <span className="h6">Sales Last 30 Days</span>
+                <span className="h4">Sales Report Last 30 Days</span>
                 <ResponsiveContainer className="mt-4" width="100%" height={200}>
                   <AreaChart
                     width={500}
@@ -160,7 +174,7 @@ const Dashboard = () => {
           <div className="col-md-6 p-2">
             <div className="card">
               <div className="card-body">
-                <span className="h6">Purchase Last 30 Days</span>
+                <span className="h4">Purchase Report Last 30 Days</span>
                 <ResponsiveContainer className="mt-4" width="100%" height={200}>
                   <AreaChart
                     width={500}
@@ -186,7 +200,7 @@ const Dashboard = () => {
           <div className="col-md-6 p-2">
             <div className="card">
               <div className="card-body">
-                <span className="h6">Return Last 30 Days</span>
+                <span className="h4">Return Report Last 30 Days</span>
                 <ResponsiveContainer className="mt-4" width="100%" height={200}>
                   <AreaChart
                     width={500}
