@@ -5,8 +5,8 @@ import { ErrorToast, IsEmail, IsEmpty } from "../../helper/FormHelper";
 
 const Login = () => {
   let [data, setData] = useState({
-    UserEmail: "",
-    password: "",
+    UserEmail: "ismailsardar540@gmail.com",
+    password: "1234567",
   });
 
   let { UserEmail, password } = data;
