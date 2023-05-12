@@ -148,6 +148,7 @@ const Profile = () => {
                       defaultValue={ProfileData["password"]}
                       ref={(input) => (passwordRef = input)}
                       placeholder="User Password"
+                      readOnly={true}
                       className="form-control animated fadeInUp"
                       type="password"
                     />
@@ -162,7 +163,7 @@ const Profile = () => {
                   </div>
                   <div className="col-2 p-2">
                     <button
-                      onClick={()=>navigate("/")}
+                      onClick={() => navigate("/")}
                       className="w-100  btn btn-info animated fadeInUp"
                     >
                       Back
