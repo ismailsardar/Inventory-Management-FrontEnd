@@ -374,7 +374,7 @@ const MasterLayout = (props) => {
                 <span className="side-bar-item-caption">{item.title}</span>
               </NavLink>
             );
-          })}
+          })} 
         </Accordion>
       </div>
 
