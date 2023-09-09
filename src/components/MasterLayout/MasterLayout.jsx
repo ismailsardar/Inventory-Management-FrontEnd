@@ -263,7 +263,7 @@ const MasterLayout = (props) => {
   return (
     <>
       <Navbar className="fixed-top px-0 ">
-        <Container fluid={true}>
+        <Container fluid={true}> 
           <Navbar.Brand>
             <div
               ref={(div) => {
