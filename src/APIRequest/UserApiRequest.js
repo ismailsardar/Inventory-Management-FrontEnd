@@ -13,7 +13,7 @@ import { HideLoader, ShowLoader } from "../redux/slice/settingsSlice";
 import store from "../redux/store/store";
 const axiosConfig = { headers: { token: getToken() } };
 
-// Registration Request
+// Registration Request 
 export async function RegistrationRequest(
   UserEmail,
   firstName,
@@ -21,7 +21,7 @@ export async function RegistrationRequest(
   mobile,
   password,
   photo
-) {
+) { 
   try {
     store.dispatch(ShowLoader());
     let URL = `${BaseURL}/registration`;
